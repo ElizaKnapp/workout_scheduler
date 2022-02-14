@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> LOGIN PAGE </title>
+
+    </head>
+
+    <body >
+
+        <div >
+            <h1> <b>Workout Planner</b></h1>
+        </div>
+
+        <div >
+
+            <form action="/auth" method="POST" >
+                <br> Sign In <br><br>
+                {% if input == "success" %}
+                    <p >Registration successful! Please login.</p>
+                {% elif input == "bad_user" %}
+                    <p >Username not found. Please try again!</p>
+                {% elif input == "bad_pass" %}
+                    <p >Password incorrect. Please try again!</p>
+                {% endif %}
+                <div >
+                    <label for="user">Username</label><br>
+                    <input id="user" type="text" name="username" placeholder="Username"><br>
+                </div>
+                <br>
+                <div >
+                    <label for="pass">Password</label><br>
+                    <input id="pass" type="password" name="password" placeholder="Password"><br><br>
+                </div>
+                <br>
+                <input  type="submit" name="sub1" value="Login">
+            </form>
+            <br>
+        </div>
+
+        <div >
+            <p id="create_option"> New user? <a href="{{ url_for('register') }}">Create Account</a> </p>
+        </div>
+
+    </body>
+
+</html>
