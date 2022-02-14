@@ -63,6 +63,14 @@ def rAuthenticate():
                 else:
                     return render_template('register.html', taken = True)
 
+@app.route("/logout", methods=['GET', 'POST'])
+def logout():
+  try:
+    session.pop('username')
+  except KeyError:
+    return redirect(url_for('index'))
+  return redirect(url_for('index'))
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
