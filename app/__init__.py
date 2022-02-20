@@ -12,7 +12,8 @@ def index():
   if 'username' not in session:  
     return render_template('login.html')
   
-  return render_template('dashboard.html', username=session['username'])
+  days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satuday", "Sunday"]
+  return render_template('dashboard.html', username=session['username'], days = days)
 
 @app.route("/auth", methods=['GET', 'POST'])
 def authenticate():
@@ -62,6 +63,11 @@ def rAuthenticate():
                     return render_template('login.html', input='success')
                 else:
                     return render_template('register.html', taken = True)
+
+@app.route("/create_activity", methods=['GET', 'POST'])
+def create_activity():
+  print("adsf")
+  return render_template('create_activity.html')
 
 @app.route("/logout", methods=['GET', 'POST'])
 def logout():
